@@ -8,6 +8,7 @@ setopt LOCAL_OPTIONS
 setopt LOCAL_TRAPS
 setopt MULTIOS
 setopt TRAPS_ASYNC
+setopt AUTO_Csetopt AUTO_CD
 
 REPORTTIME=32
 
