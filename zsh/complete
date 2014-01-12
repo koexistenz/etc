@@ -1,0 +1,9 @@
+setopt GLOB_COMPLETE
+
+autoload -U compinit
+compinit
+
+zstyle ":completion:*" use-cache on
+zstyle ":completion:*" completer _complete _correct _approximate
+zstyle ":completion:*" list-colors ${(s.:.)LS_COLORS}
+zstyle ":completion:*" menu select

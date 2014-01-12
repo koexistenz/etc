@@ -1,0 +1,42 @@
+have() {
+	command -v "$1" >/dev/null
+}
+
+# Set key map
+setxkbmap -print greedy | xkbcomp -I"${HOME}/etc/X/xkb" -w 3 -xkb - - | xkbcomp -w 3 - "${DISPLAY}"
+
+# Process X resources
+find ~/etc/X/resource/ -type f -exec sh -c \
+	'sed -r "s/[ \t]*([A-Za-z0-9_]+)[ \t]*:/$(basename ''{}'').\1:/" ''{}''' \; \
+	| xrdb
+
+# Lanuch dbus
+if have dbus-launch && [ -z "${DBUS_SESSION_BUS_ADDRESS}" ]
+then
+	eval "$(dbus-launch --sh-syntax)"
+fi
+
+# NetworkManager applet
+have nm-applet &&
+	nm-applet &
+
+# ibus
+have ibus-daemon &&
+	ibus-daemon --daemonize
+
+# SSH and GnuPG agents
+have ssh-agent &&
+	eval "$(ssh-agent)"
+
+have gpg-agent &&
+	eval "$(gpg-agent --daemon)"
+
+# Composition manager
+have xcompmgr &&
+	xcompmgr -I 0.112 -O 0.12 -f -F &
+
+# Set background image
+have feh &&
+	feh --bg-fill ~/img/lyapunov.png
+
+exec i3

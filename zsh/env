@@ -1,0 +1,22 @@
+eval "$(dircolors)"
+
+export EDITOR="vim"
+export LANG="en_GB.UTF-8"
+export MANSECT="3p:3:2:1p:1:8:4:5:6:7:9:0p"
+
+if { have clang } {
+	export CC="clang"
+}
+
+if { have clang++ } {
+	export CXX="clang++"
+}
+
+if { have galette } {
+	export CC="galette ${CC}"
+	export CXX="galette ${CXX}"
+}
+
+if [[ -d ~/bin ]] {
+	path+=( ~/bin )
+}

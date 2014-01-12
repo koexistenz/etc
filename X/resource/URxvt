@@ -1,0 +1,13 @@
+depth: 32
+background: [85]black
+foreground: white
+jumpScroll: true
+skipScroll: true
+fading: 10
+font: xft:M+ 1mn:size=8, xft:Unifont:size=8
+urgentOnBell: true
+scrollBar: false
+scrollTtyOutput: false
+scrollTtyKeypress: true
+saveLines: 4096
+pastableTabs: true
