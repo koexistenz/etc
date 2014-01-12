@@ -1,0 +1,34 @@
+setopt HASH_CMDS
+setopt RC_QUOTES
+setopt SHORT_LOOPS
+
+setopt C_BASES
+setopt FUNCTION_ARGZERO
+setopt LOCAL_OPTIONS
+setopt LOCAL_TRAPS
+setopt MULTIOS
+setopt TRAPS_ASYNC
+
+REPORTTIME=32
+
+watch=( notme )
+fpath+=( ~/etc/zsh/function )
+
+# Load modules
+for module ( cap files mathfunc system terminfo )
+	zmodload zsh/$module
+
+# Load functions
+autoload -U zargs zmv
+autoload -U ~/etc/zsh/function/*(:t)
+
+# Set up suffix aliases
+for script ( ~/etc/zsh/suffix/* )
+	source "$script"
+
+source ~/etc/zsh/env
+source ~/etc/zsh/complete
+source ~/etc/zsh/history
+source ~/etc/zsh/jobctrl
+source ~/etc/zsh/prompt
+source ~/etc/zsh/zle
