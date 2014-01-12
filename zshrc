@@ -32,4 +32,3 @@ source ~/etc/zsh/complete
 source ~/etc/zsh/history
 source ~/etc/zsh/jobctrl
 source ~/etc/zsh/prompt
-source ~/etc/zsh/zle
