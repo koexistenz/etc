@@ -1,0 +1,23 @@
+alias me = say /me
+alias online   = status online
+alias away     = status away
+alias dnd      = status dnd
+alias notavail = status notavail
+
+set nickname = 
+set jid = 
+set password = 
+set priority = 3
+set priority_away = 0
+ 
+set autoaway = 420
+ 
+set logging = 1
+set load_logs = 1
+set logging_ignore_status = 1
+set logging_dir = ~/.mcabber/histo/
+ 
+set otr = 1
+set otr_dir = "~/.mcabber/otr/"
+ 
+set beep_on_message = 1
